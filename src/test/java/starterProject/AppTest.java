@@ -14,7 +14,6 @@ public class AppTest {
     public void isObjectsCreated(){
 
         App.createCar();
-
         ArrayList<Car> haveCarsBeenCreated = App.createCar();
         assertNotNull(haveCarsBeenCreated);
         assertEquals(3,haveCarsBeenCreated.size());

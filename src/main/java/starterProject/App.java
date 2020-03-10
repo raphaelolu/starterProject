@@ -6,7 +6,6 @@ package starterProject;
 import starterProject.domain.*;
 import lombok.Data;
 
-
 import java.util.ArrayList;
 
 public class App {
@@ -18,29 +17,6 @@ public class App {
         System.out.println(new App().getGreeting());
 
  createCar();
-
-      ArrayList<Car>  foreigns = createCar();
-
-
-
-      for(Car ne: foreigns){
-
-          System.out.println(ne.getEngine());
-      }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
     public static ArrayList<Car> createCar(){
 
@@ -49,22 +25,14 @@ public class App {
         Engine v12 = new Engine();
         Doors verticalDoors = new Doors();
 
-
         Car ferarri = Car.builder().transmission(automatic).wheels(parelli).engine(v12).doors(verticalDoors).name("ferrari").build();
        Car  buggatti = Car.builder().transmission(automatic).wheels(parelli).engine(v12).doors(verticalDoors).name("bugatti").build();
        Car landRover = Car.builder().transmission(automatic).wheels(parelli).engine(v12).doors(verticalDoors).name("landrover").build();
 
-
-
-
-
         ArrayList<Car> objectList = new ArrayList<>();
-
         objectList.add(ferarri);
         objectList.add(buggatti);
         objectList.add(landRover);
-
-
         return objectList;
     }
 
