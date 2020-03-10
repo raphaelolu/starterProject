@@ -53,17 +53,11 @@ public class App {
         Car ferarri = Car.builder().transmission(automatic).wheels(parelli).engine(v12).doors(verticalDoors).name("ferrari").build();
        Car  buggatti = Car.builder().transmission(automatic).wheels(parelli).engine(v12).doors(verticalDoors).name("bugatti").build();
        Car landRover = Car.builder().transmission(automatic).wheels(parelli).engine(v12).doors(verticalDoors).name("landrover").build();
-
-
-
-
-
         ArrayList<Car> objectList = new ArrayList<>();
 
         objectList.add(ferarri);
         objectList.add(buggatti);
         objectList.add(landRover);
-
 
         return objectList;
     }
