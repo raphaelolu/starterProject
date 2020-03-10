@@ -4,7 +4,7 @@ import lombok.Data;
 
 import java.util.ArrayList;
 
-@Data  @Builder public class Car {
+@Data @Builder public class Car {
 
     private Transmission transmission;
     private Wheels wheels;

@@ -1,6 +1,11 @@
 package starterProject.domain;
 
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
 public class Engine {
 
-    private String cylinders;
+    private int Cylinders;
 }

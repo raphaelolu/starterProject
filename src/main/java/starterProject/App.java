@@ -3,6 +3,9 @@
  */
 package starterProject;
 
+import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.XSlf4j;
+import org.apache.log4j.BasicConfigurator;
 import starterProject.domain.*;
 import lombok.Data;
 
@@ -12,29 +15,26 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
+@Slf4j
 public class App {
     public String getGreeting() {
         return "Hello world.";
-
     }
-    static Logger logger = LoggerFactory.getLogger(App.class);
-
     public static void main(String[] args) {
         createCar();
         ArrayList<Car> exoticCars = createCar();
 
         for (Car cars : exoticCars) {
-            logger.info(cars.getName());
+            log.info(cars.getName());
         }
+        BasicConfigurator.configure();
     }
     public static ArrayList<Car> createCar() {
 
-        Transmission automatic = new Transmission();
-        Wheels parelli = new Wheels();
-        Engine v12 = new Engine();
-        Doors verticalDoors = new Doors();
-
-
+        Transmission automatic = Transmission.builder().Automatic(true).build();
+        Wheels parelli = Wheels.builder().wheels(4).build();
+        Engine v12 = Engine.builder().Cylinders(12).build();
+        Doors verticalDoors = Doors.builder().doornumbers(2).build();
         Car ferarri = Car.builder().transmission(automatic).wheels(parelli).engine(v12).doors(verticalDoors).name("ferrari").build();
         Car buggatti = Car.builder().transmission(automatic).wheels(parelli).engine(v12).doors(verticalDoors).name("bugatti").build();
         Car landRover = Car.builder().transmission(automatic).wheels(parelli).engine(v12).doors(verticalDoors).name("landrover").build();
@@ -43,6 +43,7 @@ public class App {
         objectList.add(buggatti);
         objectList.add(landRover);
         return objectList;
+
     }
 
 }
