@@ -3,20 +3,11 @@
  */
 package starterProject;
 
-import lombok.extern.slf4j.Slf4j;
-import lombok.extern.slf4j.XSlf4j;
-import org.apache.log4j.BasicConfigurator;
 import starterProject.domain.*;
-import lombok.Data;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Slf4j
 public class App {
     public String getGreeting() {
         return "Hello world.";
@@ -26,9 +17,9 @@ public class App {
         List<Car> exoticCars = createCar();
 
         for (Car cars : exoticCars) {
-            log.info(cars.getName());
+            System.out.println(cars.getName());
         }
-        BasicConfigurator.configure();
+
     }
     public static List<Car> createCar() {
 

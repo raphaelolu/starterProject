@@ -15,7 +15,7 @@ public class AppTest {
 
         App.createCar();
 
-        ArrayList<Car> haveCarsBeenCreated = App.createCar();
+        List<Car> haveCarsBeenCreated = App.createCar();
         assertNotNull(haveCarsBeenCreated);
         assertEquals(3,haveCarsBeenCreated.size());
 
