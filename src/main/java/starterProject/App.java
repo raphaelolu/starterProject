@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 public class App {
@@ -22,14 +23,14 @@ public class App {
     }
     public static void main(String[] args) {
         createCar();
-        ArrayList<Car> exoticCars = createCar();
+        List<Car> exoticCars = createCar();
 
         for (Car cars : exoticCars) {
             log.info(cars.getName());
         }
         BasicConfigurator.configure();
     }
-    public static ArrayList<Car> createCar() {
+    public static List<Car> createCar() {
 
         Transmission automatic = Transmission.builder().Automatic(true).build();
         Wheels parelli = Wheels.builder().wheels(4).build();
