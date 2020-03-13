@@ -8,6 +8,8 @@ import lombok.Data;
 public class Doors {
 
     private int doornumbers;
+    private int newmkfkl;
+
 
 
 }
