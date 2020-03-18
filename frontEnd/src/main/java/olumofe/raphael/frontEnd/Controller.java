@@ -9,8 +9,6 @@ import java.util.concurrent.atomic.AtomicLong;
 public class Controller {
 
     private static  final String template = "Status ok";
-
-
     @GetMapping("/status")
     @ResponseBody
     public representation sayHello(@RequestParam(name="name", required=false, defaultValue="Stranger") String name) {
