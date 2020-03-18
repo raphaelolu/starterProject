@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.concurrent.atomic.AtomicLong;
 @org.springframework.stereotype.Controller
 public class Controller {
-
     private static  final String template = "Status ok";
     @GetMapping("/status")
     @ResponseBody
@@ -17,3 +16,4 @@ public class Controller {
 
 
 }
+it
