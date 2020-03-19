@@ -12,8 +12,6 @@ import java.util.List;
 
 public class CarController {
 
-
-
     private List<Car> carList = App.createCar();
 
     @GetMapping("/getCars")
