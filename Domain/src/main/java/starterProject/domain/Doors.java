@@ -7,9 +7,5 @@ import lombok.Data;
 @Builder
 public class Doors {
 
-    private int doornumbers;
-    private int newmkfkl;
-
-
-
+    private int doorNumbers;
 }

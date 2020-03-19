@@ -7,5 +7,5 @@ import lombok.Data;
 @Builder
 public class Engine {
 
-    private int Cylinders;
+    private int cylinders;
 }

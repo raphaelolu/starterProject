@@ -23,10 +23,10 @@ public class App {
     }
     public static List<Car> createCar() {
 
-        Transmission automatic = Transmission.builder().Automatic(true).build();
+        Transmission automatic = Transmission.builder().automatic(true).build();
         Wheels parelli = Wheels.builder().wheels(4).build();
-        Engine v12 = Engine.builder().Cylinders(12).build();
-        Doors verticalDoors = Doors.builder().doornumbers(2).build();
+        Engine v12 = Engine.builder().cylinders(12).build();
+        Doors verticalDoors = Doors.builder().doorNumbers(2).build();
         Car ferarri = Car.builder().transmission(automatic).wheels(parelli).engine(v12).doors(verticalDoors).name("ferrari").build();
         Car buggatti = Car.builder().transmission(automatic).wheels(parelli).engine(v12).doors(verticalDoors).name("bugatti").build();
         Car landRover = Car.builder().transmission(automatic).wheels(parelli).engine(v12).doors(verticalDoors).name("landrover").build();

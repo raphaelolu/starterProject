@@ -8,16 +8,16 @@ subprojects {
         mavenCentral()
     }
     dependencies {
-        compileOnly 'org.projectlombok:lombok:1.18.12'
+        compileOnly "org.projectlombok:lombok:$lombok"
 
 
 
         testCompileOnly 'org.projectlombok:lombok:1.18.12'
         testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
-        testImplementation('org.junit.jupiter:junit-jupiter-api:5.4.2')
-        testRuntime('org.junit.jupiter:junit-jupiter-engine:5.4.2')
+        testImplementation("org.junit.jupiter:junit-jupiter-api:$jupiter")
+        testRuntime("org.junit.jupiter:junit-jupiter-engine:$jupiterEngine")
         compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: "$log4j"
         compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: "$log4j"
-        implementation 'com.google.code.gson:gson:2.8.6'
+        implementation "com.google.code.gson:gson:$gson"
     }
 }
