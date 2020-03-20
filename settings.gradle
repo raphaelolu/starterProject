@@ -8,3 +8,6 @@
  */
 
 rootProject.name = "starterProject"
+include 'frontEnd'
+include 'Domain'
+

@@ -6,5 +6,5 @@ import lombok.Data;
 @Data
 @Builder
 public class Transmission {
-
+    private Boolean automatic;
 }

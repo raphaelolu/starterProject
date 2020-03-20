@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class Engine {
+public class Doors {
 
-    private int Cylinders;
+    private int doorNumbers;
 }
