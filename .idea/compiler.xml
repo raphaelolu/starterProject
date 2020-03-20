@@ -12,6 +12,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="api" target="1.8" />
       <module name="starterProject.main" target="11" />
       <module name="starterProject.test" target="11" />
     </bytecodeTargetLevel>
