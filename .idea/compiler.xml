@@ -11,5 +11,11 @@
         <module name="starterProject.main" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="starterProject.Domain.main" target="11" />
+      <module name="starterProject.Domain.test" target="11" />
+      <module name="starterProject.frontEnd.main" target="11" />
+      <module name="starterProject.frontEnd.test" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
