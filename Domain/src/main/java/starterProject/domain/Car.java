@@ -1,10 +1,13 @@
 package starterProject.domain;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 
-@Data @Builder public class Car {
+@Data @NoArgsConstructor @AllArgsConstructor
+@Builder public class Car {
 
     private Transmission transmission;
     private Wheels wheels;

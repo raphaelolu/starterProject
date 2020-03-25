@@ -20,6 +20,7 @@ public class App {
             System.out.println(cars.getName());
         }
 
+
     }
     public static List<Car> createCar() {
 
@@ -37,6 +38,8 @@ public class App {
         return objectList;
 
     }
+
+   public static List<Car> lists = createCar();
 
 }
 
