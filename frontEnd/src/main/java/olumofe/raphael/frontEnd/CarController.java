@@ -14,13 +14,14 @@ public class CarController {
     List<Car> carNewList = Arrays.asList();
     @PostMapping(path= "/cars",consumes = {"application/json"})
     @ResponseBody
-    public Map<Integer,Car> createCarList(@RequestBody List<Car> carList){
+    public Map<String,Car> createCarList(@RequestBody List<Car> carList){
        carNewList = carList;
-        HashMap<Integer,Car> map = new HashMap<Integer, Car>();
-        for (Car i : carNewList) {
-            map.put(carNewList.size(), i);
+        HashMap<String,Car> map = new HashMap<String, Car>();
+
+        for (int i = 0; i < carList.size() ; i ++) {
+            map.put(String.valueOf(i),carNewList.get(i));
         }
-       return map;
+        return map;
     }
     @PostMapping(path = "/car/",consumes = {"application/json"})
     @ResponseBody
