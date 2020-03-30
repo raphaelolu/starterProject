@@ -16,17 +16,17 @@ public class CarController {
     @ResponseBody
     public Map<String,Car> createCarList(@RequestBody List<Car> carList){
        carNewList = carList;
-        HashMap<String,Car> map = new HashMap<String, Car>();
+        Map<String,Car> map = new HashMap<String, Car>();
 
         for (int i = 0; i < carList.size() ; i ++) {
             map.put(String.valueOf(i),carNewList.get(i));
         }
         return map;
     }
-    @PostMapping(path = "/car/",consumes = {"application/json"})
+    @PostMapping(path = "/car",consumes = {"application/json"})
     @ResponseBody
-    public List<Car> car(Car car){
-        carNewList.add(carNewList.size()+1,car);
+    public List<Car> car( Car car){
+        carNewList.add(carNewList.size()  ,car);
         return carNewList;
     }
 

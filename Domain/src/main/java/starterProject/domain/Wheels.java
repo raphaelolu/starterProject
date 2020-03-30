@@ -13,5 +13,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 public class Wheels {
-    private int wheels = 4;
+    private int wheels;
 }
