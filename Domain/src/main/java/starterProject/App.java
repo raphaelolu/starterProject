@@ -29,9 +29,5 @@ public class App {
         objectList.add(buggatti);
         objectList.add(landRover);
         return objectList;
-
     }
-
-   public static List<Car> lists = createCar();
-
 }
