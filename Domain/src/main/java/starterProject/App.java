@@ -14,15 +14,9 @@ public class App {
     }
     public static void main(String[] args) {
         createCar();
-        List<Car> exoticCars = createCar();
-
-        for (Car cars : exoticCars) {
-            System.out.println(cars.getName());
-        }
-
     }
-    public static List<Car> createCar() {
 
+    private static List<Car> createCar() {
         Transmission automatic = Transmission.builder().automatic(true).build();
         Wheels parelli = Wheels.builder().wheels(4).build();
         Engine v12 = Engine.builder().cylinders(12).build();
@@ -35,8 +29,5 @@ public class App {
         objectList.add(buggatti);
         objectList.add(landRover);
         return objectList;
-
     }
-
 }
-
