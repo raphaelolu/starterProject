@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicLong;
    @RestController
 public class CarController {
 
-    List<Car> carNewList = Arrays.asList();
+    List<Car> carNewList =  new ArrayList<Car>();
     @PostMapping(path= "/cars",consumes = {"application/json"})
     @ResponseBody
     public Map<String,Car> createCarList(@RequestBody List<Car> carList){
@@ -25,8 +25,8 @@ public class CarController {
     }
     @PostMapping(path = "/car",consumes = {"application/json"})
     @ResponseBody
-    public List<Car> car( Car car){
-        carNewList.add(carNewList.size()  ,car);
+    public List<Car> car(@RequestBody Car car){
+        carNewList.add(car);
         return carNewList;
     }
 
