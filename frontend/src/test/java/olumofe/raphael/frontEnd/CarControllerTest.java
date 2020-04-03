@@ -21,14 +21,12 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.context.WebApplicationContext;
 import starterProject.domain.Car;
-
 import javax.servlet.ServletContext;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.net.URL;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -38,9 +36,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class CarControllerTest {
     @LocalServerPort
     private int port;
-
-
-
     @Autowired
     private TestRestTemplate restTemplate;
 
@@ -56,8 +51,6 @@ public class CarControllerTest {
     void testGet() {
 //        assertEquals(carNewList, carController.createCarList(carController.carNewList));
     }
-
-
     @Test
     public void checkObjectIsCreated() throws Exception {
 
@@ -65,70 +58,5 @@ public class CarControllerTest {
                 new URL("http://localhost:" + port + "/cars").toString(), String.class);
        // assertEquals("Hello Controller", response.getBody());
         assertNotNull(response.getBody());
-
     }
-
-    @Test
-    public void checkMapIsreturned()  throws  Exception {
-        ResponseEntity <String> response = restTemplate.getForEntity(
-                new URL("http//localhost:" + port + "car").toString(),String.class);
-        assertNotNull(response.getBody());
-
-
-
-
     }
-
-//    @Test
-//    public void checkReturn() throws Exception {,
-//        ResponseEntity<String> response = restTemplate.getForEntity(
-//                new URL("http://localhost:" + port + "/cars").toString(), String.class);
-//    HashMap<>
-//         String testDats = new JSONObject(;
-//
-//
-//
-
-
-
-
-    }
-
-
-
-
-//    private WebApplicationContext wac;
-//
-//    private MockMvc mockMvc;
-//    @Before
-//    public void setup() throws Exception {
-//        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
-//    }
-
-//    @Test
-//    public void givenWac_whenServletContext_thenItProvidesGreetController() {
-//        ServletContext servletContext = wac.getServletContext();
-//
-//        Assert.assertNotNull(servletContext);
-//        Assert.assertTrue(servletContext instanceof MockServletContext);
-//        Assert.assertNotNull(wac.getBean("CarController"));
-//    }
-
-//    @Test
-//    public void givenGreetURIWithPost_whenMockMVC_thenVerifyResponse() {
-//        this.mockMvc.perform(post("/cars")).andDo(print())
-//                .andExpect(status().isOk()).andExpect(content()
-//                .contentType("application/json;charset=UTF-8"))
-//                .andExpect(jsonPath("$.message").value("Hello World!!!"));
-//    }
-//
-//    private RequestBuilder post(String s) {
-//    }
-//
-//
-//
-//
-
-//    @Test
-//    void car() {
-//    }
