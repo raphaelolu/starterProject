@@ -15,7 +15,7 @@ public class App {
     public static void main(String[] args) {
         createCar();
     }
-    private static void createCar() {
+    private static List<Car> createCar() {
         Transmission automatic = Transmission.builder().automatic(true).build();
         Wheels parelli = Wheels.builder().wheels(4).build();
         Engine v12 = Engine.builder().cylinders(12).build();
@@ -27,5 +27,7 @@ public class App {
         objectList.add(ferarri);
         objectList.add(buggatti);
         objectList.add(landRover);
+
+        return objectList;
     }
 }
