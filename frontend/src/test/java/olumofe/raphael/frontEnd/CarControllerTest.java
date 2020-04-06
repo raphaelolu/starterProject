@@ -39,18 +39,11 @@ public class CarControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-@Test
-    public void sep(){assert(true);}
-
    @Autowired
     CarController carController;
 
-
     @DisplayName("Test Spring @Autowired Integration")
-    @Test
-    void testGet() {
-//        assertEquals(carNewList, carController.createCarList(carController.carNewList));
-    }
+
     @Test
     public void checkObjectIsCreated() throws Exception {
 

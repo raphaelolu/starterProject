@@ -14,10 +14,4 @@ import java.util.ArrayList;
     private Engine engine;
     private Doors doors;
     private String name;
-
-
-
-
-
-
 }
