@@ -1,11 +1,7 @@
-package olumofe.raphael.frontEnd;
+package olumofe.raphael.frontend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import starterProject.App;
-import starterProject.domain.Car;
-
-import java.util.List;
 
 @SpringBootApplication
 public class Application {

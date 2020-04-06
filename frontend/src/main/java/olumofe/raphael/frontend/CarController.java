@@ -1,12 +1,10 @@
-package olumofe.raphael.frontEnd;
+package olumofe.raphael.frontend;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import starterProject.App;
 import starterProject.domain.*;
-import java.security.Key;
+
 import java.util.*;
-import java.util.concurrent.atomic.AtomicLong;
+
 @org.springframework.stereotype.Controller
    @RestController
 public class CarController {

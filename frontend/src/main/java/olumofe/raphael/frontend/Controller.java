@@ -1,8 +1,6 @@
-package olumofe.raphael.frontEnd;
+package olumofe.raphael.frontend;
 import org.springframework.web.bind.annotation.*;
-import starterProject.domain.*;
-import java.util.ArrayList;
-import java.util.List;
+
 @org.springframework.stereotype.Controller
 public class Controller
 {

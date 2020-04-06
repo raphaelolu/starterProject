@@ -1,4 +1,4 @@
-package olumofe.raphael.frontEnd;
+package olumofe.raphael.frontend;
 
 public interface Service {
 
