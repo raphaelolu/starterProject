@@ -10,8 +10,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @org.springframework.stereotype.Controller
    @RestController
 public class CarController {
-
-
+    Service repo;
     private List<Car> newCar=  new ArrayList<>();
 
     @ResponseBody
