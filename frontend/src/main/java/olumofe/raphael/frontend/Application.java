@@ -1,12 +1,10 @@
-package olumofe.raphael.frontEnd;
+package olumofe.raphael.frontend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import starterProject.App;
-import starterProject.domain.Car;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-import java.util.List;
-
+@EntityScan("starterProject.domain")
 @SpringBootApplication
 public class Application {
 

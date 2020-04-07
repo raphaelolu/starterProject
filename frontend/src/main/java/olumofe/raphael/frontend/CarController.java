@@ -1,25 +1,24 @@
-package olumofe.raphael.frontEnd;
-
+package olumofe.raphael.frontend;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import starterProject.App;
-import starterProject.domain.*;
-import java.security.Key;
+import starterproject.domain.*;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicLong;
+
 @org.springframework.stereotype.Controller
    @RestController
-public class CarController {
-    Service repo;
+public class CarController{
     private List<Car> newCar=  new ArrayList<>();
+
+    @Autowired
+    Service repo;
 
     @ResponseBody
     @GetMapping("/cat")
     public String hello() {
         return "Hello Controller";
     }
-
     List<Car> carNewList =  new ArrayList<>();
+
     @PostMapping(path= "/cars",consumes = {"application/json"})
     @ResponseBody
     public Map<String,Car> createCarList(@RequestBody List<Car> carList){
@@ -31,10 +30,23 @@ public class CarController {
         }
         return map;
     }
+
     @PostMapping(path = "/car",consumes = {"application/json"})
     @ResponseBody
     public List<Car> car(@RequestBody Car car){
         carNewList.add(car);
         return carNewList;
+    }
+    @DeleteMapping("alien/{aid")
+   public Car deleteObject(@PathVariable int aid) {
+        Car car = repo.getOne(aid);
+        repo.delete(car);
+        return car;
+    }
+
+      @PutMapping(path="/Car",consumes = {"application/json"})
+    public Car updateCar(@RequestBody Car car ){
+        repo.save(car);
+        return car;
     }
 }

@@ -1,4 +1,4 @@
-package starterProject.domain;
+package starterproject.domain;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @JsonDeserialize
 @NoArgsConstructor
 @AllArgsConstructor
-public class Engine {
-    private int cylinders;
+public class Transmission {
+    private Boolean automatic;
 }
