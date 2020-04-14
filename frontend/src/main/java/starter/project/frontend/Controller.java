@@ -1,4 +1,4 @@
-package olumofe.raphael.frontEnd;
+package starter.project.frontend;
 import org.springframework.web.bind.annotation.*;
 import starterProject.domain.*;
 import java.util.ArrayList;
