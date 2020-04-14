@@ -1,8 +1,9 @@
-package starterproject.frontend;
+package starter.project.frontend;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.ArrayList;
+import java.util.List;
 @org.springframework.stereotype.Controller
-public class Controller
+public class StatusController
 {
     @GetMapping("/status")
     @ResponseBody

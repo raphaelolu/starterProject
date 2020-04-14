@@ -1,4 +1,4 @@
-package starterproject.frontend;
+package starter.project.frontend;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -8,13 +8,14 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
-import starterproject.domain.*;
+import starter.project.domain.Car;
+
 import javax.persistence.Id;
 import javax.sql.DataSource;
 import java.util.*;
 
 @org.springframework.stereotype.Controller
-   @RestController
+@RestController
 @Component
 public class CarController {
     private  List<Car> carNewList = new ArrayList<>();
@@ -38,20 +39,20 @@ public class CarController {
     @ResponseBody
     public List<Car> car(@RequestBody Car car) {
         carNewList.add(car);
-        repo.save(car);
+//        repo.save(car);
         return carNewList;
     }
 
     @DeleteMapping("/carDelete/{carId}")
     public void deleteObject(@PathVariable int carId) {
-        Car car = repo.getOne(carId);
-        repo.delete(car);
+//        Car car = repo.getOne(carId);
+//        repo.delete(car);
 
     }
 
     @PutMapping(path = "/Car", consumes = {"application/json"})
     public Car updateCar(@RequestBody Car car) {
-        repo.save(car);
+//        repo.save(car);
         return car;
     }
 
