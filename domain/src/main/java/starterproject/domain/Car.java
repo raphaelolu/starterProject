@@ -4,14 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 //import javax.persistence.Entity;
 //import javax.persistence.GeneratedValue;
 //import javax.persistence.GenerationType;
 //import javax.persistence.Id;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @JsonDeserialize
@@ -19,13 +17,13 @@ import javax.persistence.Id;
 @Builder
 @Entity
 public class Car {
-   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+ // @GeneratedValue(strategy = GenerationType.IDENTITY)
+ @Id
   private Integer id;
-    private  transient Transmission transmission;
-    private transient Wheels wheels;
-    private transient Engine engine;
-    private  transient Doors doors;
-    private transient String name;
+    private Transmission transmission;
+    private Wheels wheels;
+    private Engine engine;
+    private Doors doors;
+    private String name;
 
 }

@@ -1,4 +1,4 @@
-package olumofe.raphael.frontend;
+package starterproject.frontend;
 import org.springframework.web.bind.annotation.*;
 
 @org.springframework.stereotype.Controller
