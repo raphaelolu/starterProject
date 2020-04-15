@@ -30,7 +30,7 @@ public class CarController {
         }
         return null;
     }
-    @GetMapping(path = "/carsBatch/{list}")
+    @GetMapping(path = "/cars/{list}")
     @ResponseBody
     public List<Car> getBatchCars(@PathVariable List<Integer> list) {
         List<Car> newList = new ArrayList<>();
