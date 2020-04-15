@@ -1,1 +1,0 @@
-insert  into car values (7,4,7,'jgjj',true,4)

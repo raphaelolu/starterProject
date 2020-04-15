@@ -1,4 +1,4 @@
-package starter.project.frontend;
+package olumofe.raphael.frontend;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
