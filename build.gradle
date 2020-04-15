@@ -15,10 +15,5 @@ subprojects {
         testRuntime("org.junit.jupiter:junit-jupiter-engine:$jupiterEngine")
         compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: "$log4j"
         compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: "$log4j"
-
-
     }
-}
-
-dependencies {
 }

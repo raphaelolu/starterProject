@@ -21,15 +21,8 @@ public class CarControllerTest {
     @Autowired
     CarController carController;
 
-    @DisplayName("Test Spring @Autowired Integration")
 
-    @Test
-    public void checkObjectIsCreated() throws Exception {
 
-        ResponseEntity<String> response = restTemplate.getForEntity(
-                new URL("http://localhost:" + port + "/cars").toString(), String.class);
-        // assertEquals("Hello Controller", response.getBody());
-        assertNotNull(response.getBody());
-    }
+
 }
 
