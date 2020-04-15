@@ -12,7 +12,7 @@ public class CarController {
 
     private List<Car> carNewList = new ArrayList<>();
 
-    @PostMapping(path = "/carr", consumes = {"application/json"})
+    @PostMapping(path = "/car", consumes = {"application/json"})
     @ResponseBody
     public List<Car> car(@RequestBody Car car) {
         carNewList.add(car);
@@ -30,7 +30,7 @@ public class CarController {
         }
         return null;
     }
-    @GetMapping(path = "/cars/{list}", consumes = {"application/json"})
+    @GetMapping(path = "/carsBatch/{list}", consumes = {"application/json"})
     @ResponseBody
     public List<Car> getBatchCars(@PathVariable List<Integer> list) {
         List<Car> newList = new ArrayList<>();
@@ -41,6 +41,19 @@ public class CarController {
             }
         }
         return newList;
+    }
+
+
+    @PostMapping(path = "/cars", consumes = {"application/json"})
+    @ResponseBody
+    public Map<String, Car> createCarList(@RequestBody List<Car> carList) {
+        carNewList = carList;
+        Map<String, Car> map = new HashMap<String, Car>();
+        for (int i = 0; i < carList.size(); i++) {
+            map.put(String.valueOf(i), carNewList.get(i));
+            System.out.println(map.keySet());
+        }
+        return map;
     }
 }
 
