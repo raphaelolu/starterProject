@@ -18,7 +18,7 @@ public class CarController {
         carNewList.add(car);
         return carNewList;
     }
-    @GetMapping(path = "/car/{carId}", consumes = {"application/json"})
+    @GetMapping(path = "/car/{carId}")
     @ResponseBody
     public Car getCars(@PathVariable("carId") int carId) {
         for (Car car : carNewList) {
