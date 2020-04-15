@@ -34,14 +34,20 @@ public class CarController {
     @ResponseBody
     public List<Car> getBatchCars(@PathVariable List<Integer> list) {
         List<Car> newList = new ArrayList<>();
-        for (int i = 0; i <= list.size() - 1; i++) {
-            if (carNewList.get(i).getId() == list.get(i)) {
-                Car car = carNewList.get(i);
-                newList.add(car);
+        for (int i = 0; i < carNewList.size(); i++)
+        {
+            for (int j = 0; j < list.size(); j++)
+            {
+                if(carNewList.get(i).getId() == (list.get(j)))
+                {
+                    Car car = carNewList.get(i);
+                    newList.add(car);
+                }
             }
         }
         return newList;
     }
+
 
 
     @PostMapping(path = "/cars", consumes = {"application/json"})
@@ -54,6 +60,8 @@ public class CarController {
         }
         return map;
     }
+
+
 }
 
 
