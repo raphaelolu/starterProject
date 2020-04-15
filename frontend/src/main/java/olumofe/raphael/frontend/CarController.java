@@ -51,7 +51,6 @@ public class CarController {
         Map<String, Car> map = new HashMap<String, Car>();
         for (int i = 0; i < carList.size(); i++) {
             map.put(String.valueOf(i), carNewList.get(i));
-            System.out.println(map.keySet());
         }
         return map;
     }
