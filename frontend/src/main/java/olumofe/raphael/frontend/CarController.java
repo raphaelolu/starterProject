@@ -7,31 +7,26 @@ import starter.project.domain.Car;
 import java.util.*;
 
 @RestController
-@Component
 public class CarController {
 
     private List<Car> carNewList = new ArrayList<>();
 
     @PostMapping(path = "/car", consumes = {"application/json"})
-    @ResponseBody
-    public List<Car> car(@RequestBody Car car) {
+    public List<Car> addCar(@RequestBody Car car) {
         carNewList.add(car);
         return carNewList;
     }
     @GetMapping(path = "/car/{carId}")
-    @ResponseBody
     public Car getCars(@PathVariable("carId") int carId) {
         for (Car car : carNewList) {
             if (car.getId() == (carId)) {
-                Car returnedCar;
-                returnedCar = car;
+                Car returnedCar = car;
                 return returnedCar;
             }
         }
         return null;
     }
     @GetMapping(path = "/cars/{list}")
-    @ResponseBody
     public List<Car> getBatchCars(@PathVariable List<Integer> list) {
         List<Car> newList = new ArrayList<>();
         for (int i = 0; i < carNewList.size(); i++)
@@ -49,10 +44,9 @@ public class CarController {
     }
 
     @PostMapping(path = "/cars", consumes = {"application/json"})
-    @ResponseBody
     public Map<String, Car> createCarList(@RequestBody List<Car> carList) {
         carNewList = carList;
-        Map<String, Car> map = new HashMap<String, Car>();
+        Map<String, Car> map = new HashMap<>();
         for (int i = 0; i < carList.size(); i++) {
             map.put(String.valueOf(i), carNewList.get(i));
         }
