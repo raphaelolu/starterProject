@@ -48,8 +48,6 @@ public class CarController {
         return newList;
     }
 
-
-
     @PostMapping(path = "/cars", consumes = {"application/json"})
     @ResponseBody
     public Map<String, Car> createCarList(@RequestBody List<Car> carList) {
