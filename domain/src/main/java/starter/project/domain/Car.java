@@ -6,9 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 @JsonDeserialize
 @Data @NoArgsConstructor @AllArgsConstructor
-@Builder
-
-public class Car {
+@Builder public class Car {
     private Transmission transmission;
     private Wheels wheels;
     private Engine engine;

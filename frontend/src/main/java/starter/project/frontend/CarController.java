@@ -1,5 +1,6 @@
 package starter.project.frontend;
 
+
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,6 @@ public class CarController {
 
     @GetMapping(path = "/car/{carId}")
     public Car getCar(@PathVariable("carId") int carId) {
-
         for (Car car : carNewList) {
             if (car.getId() == (carId)) {
                 return car;
@@ -42,14 +42,10 @@ public class CarController {
     @PostMapping(path = "/cars", consumes = {"application/json"})
     public Map<String, Car> createCarList(@RequestBody List<Car> carList) {
         carNewList = carList;
-
         for (int i = 0; i < carList.size(); i++) {
             map.put(String.valueOf(i), carNewList.get(i));
         }
         return map;
     }
 }
-
-
-
 
