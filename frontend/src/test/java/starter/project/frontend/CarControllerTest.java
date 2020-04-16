@@ -1,4 +1,4 @@
-package olumofe.raphael.frontend;
+package starter.project.frontend;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import java.net.URL;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class CarControllerTest {
     @LocalServerPort
@@ -18,11 +19,16 @@ public class CarControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    @Autowired
+   @Autowired
     CarController carController;
 
+    @DisplayName("Test Spring @Autowired Integration")
 
+    @Test
+    public void checkObjectIsCreated() throws Exception {
 
-
-}
-
+        ResponseEntity<String> response = restTemplate.getForEntity(
+                new URL("http://localhost:" + port + "/cars").toString(), String.class);
+        assertNotNull(response.getBody());
+    }
+    }
