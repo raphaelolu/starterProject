@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import starter.project.domain.Car;
 import java.util.*;
-
 @RestController
 public class CarController {
 
