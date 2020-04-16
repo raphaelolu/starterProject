@@ -34,8 +34,8 @@ public class CarController {
     @GetMapping(path = "/cars/{list}")
     public List<Car> getBatchCars(@PathVariable List<String> list) {
         List<Car> newList = new ArrayList<>();
-        for(String m : list) {
-         newList.add(map.get(m));
+        for(String entry : list) {
+         newList.add(map.get(entry));
         }
         return newList;
     }
