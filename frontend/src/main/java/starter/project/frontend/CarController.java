@@ -1,13 +1,12 @@
-package olumofe.raphael.frontend;
+package starter.project.frontend;
+
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import starter.project.domain.Car;
-
 import java.util.*;
-
 
 @RestController
 public class CarController {
@@ -23,41 +22,30 @@ public class CarController {
 
     @GetMapping(path = "/car/{carId}")
     public Car getCar(@PathVariable("carId") int carId) {
-
         for (Car car : carNewList) {
             if (car.getId() == (carId)) {
                 return car;
-            } else {throw new ResponseStatusException(
-                    HttpStatus.NOT_FOUND, "entity not found");
             }
         }
-        return null;
+        throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND, "entity not found");
     }
 
     @GetMapping(path = "/cars/{list}")
-    public List<Car> getBatchCars(@PathVariable List list) {
-
+    public List<Car> getBatchCars(@PathVariable List<String> list) {
         List<Car> newList = new ArrayList<>();
-        for (Map.Entry<String, Car> m : map.entrySet()) {
-            if (list.contains(m.getKey())) {
-                newList.add(m.getValue());
-            }
+        for(String entry : list) {
+         newList.add(map.get(entry));
         }
         return newList;
     }
     @PostMapping(path = "/cars", consumes = {"application/json"})
     public Map<String, Car> createCarList(@RequestBody List<Car> carList) {
         carNewList = carList;
-
         for (int i = 0; i < carList.size(); i++) {
             map.put(String.valueOf(i), carNewList.get(i));
         }
         return map;
     }
-
-
 }
-
-
-
 
