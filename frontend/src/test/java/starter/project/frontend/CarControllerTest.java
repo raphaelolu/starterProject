@@ -15,20 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class CarControllerTest {
     @LocalServerPort
-    private int port;
-    @Autowired
-    private TestRestTemplate restTemplate;
+    private int port;}
+//    @Autowired
+//    //private TestRestTemplate restTemplate
 
-   @Autowired
-    CarController carController;
-
-    @DisplayName("Test Spring @Autowired Integration")
-
-    @Test
-    public void checkObjectIsCreated() throws Exception {
-
-        ResponseEntity<String> response = restTemplate.getForEntity(
-                new URL("http://localhost:" + port + "/cars").toString(), String.class);
-        assertNotNull(response.getBody());
-    }
-    }
