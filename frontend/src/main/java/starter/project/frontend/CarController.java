@@ -1,13 +1,11 @@
-package olumofe.raphael.frontend;
+package starter.project.frontend;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import starter.project.domain.Car;
-
 import java.util.*;
-
 
 @RestController
 public class CarController {
