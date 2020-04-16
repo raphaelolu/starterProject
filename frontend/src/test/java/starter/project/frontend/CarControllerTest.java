@@ -1,4 +1,4 @@
-package olumofe.raphael.frontend;
+package starter.project.frontend;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,9 +17,6 @@ public class CarControllerTest {
     private int port;
     @Autowired
     private TestRestTemplate restTemplate;
-
-    @Autowired
-    CarController carController;
 
 
 
