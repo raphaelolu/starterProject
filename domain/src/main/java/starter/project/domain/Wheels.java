@@ -4,13 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 @Data
 @Builder
 @JsonDeserialize
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Wheels {
     private int wheels;
 }

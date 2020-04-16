@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @JsonDeserialize
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Transmission {
     private Boolean automatic;
 }

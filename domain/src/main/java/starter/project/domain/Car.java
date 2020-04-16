@@ -7,13 +7,10 @@ import lombok.NoArgsConstructor;
 
 @JsonDeserialize
 @Data @NoArgsConstructor @AllArgsConstructor
-@Builder
-
-public class Car {
+@Builder public class Car {
     private Transmission transmission;
     private Wheels wheels;
     private Engine engine;
     private Doors doors;
     private String name;
-    private int id;
 }
