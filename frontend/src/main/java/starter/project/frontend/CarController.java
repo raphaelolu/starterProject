@@ -42,7 +42,6 @@ public class CarController {
     @PostMapping(path = "/cars", consumes = {"application/json"})
     public Map<String, Car> createCarList(@RequestBody List<Car> carList) {
         carNewList = carList;
-
         for (int i = 0; i < carList.size(); i++) {
             map.put(String.valueOf(i), carNewList.get(i));
         }
