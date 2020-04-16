@@ -11,15 +11,11 @@ import org.springframework.http.ResponseEntity;
 import java.net.URL;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class CarControllerTest {
     @LocalServerPort
     private int port;
     @Autowired
     private TestRestTemplate restTemplate;
-
-
-
-
-}
 

@@ -9,11 +9,15 @@ subprojects {
     }
     dependencies {
         compileOnly "org.projectlombok:lombok:$lombok"
+
+
+
         testCompileOnly 'org.projectlombok:lombok:1.18.12'
         testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
         testImplementation("org.junit.jupiter:junit-jupiter-api:$jupiter")
         testRuntime("org.junit.jupiter:junit-jupiter-engine:$jupiterEngine")
         compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: "$log4j"
         compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: "$log4j"
+
     }
 }
