@@ -27,11 +27,10 @@ public class CarController {
         for (Car car : carNewList) {
             if (car.getId() == (carId)) {
                 return car;
-            } else {throw new ResponseStatusException(
-                    HttpStatus.NOT_FOUND, "entity not found");
             }
         }
-        return null;
+        throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND, "entity not found");
     }
 
     @GetMapping(path = "/cars/{list}")
