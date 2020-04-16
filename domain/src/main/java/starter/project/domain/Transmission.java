@@ -6,14 +6,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Embeddable;
-
 @Data
 @Builder
 @JsonDeserialize
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Transmission {
     private Boolean automatic;
 }

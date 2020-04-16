@@ -5,18 +5,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 @JsonDeserialize
 @Data @NoArgsConstructor @AllArgsConstructor
-@Builder
-
-public class Car {
+@Builder public class Car {
     private Transmission transmission;
     private Wheels wheels;
     private Engine engine;
     private Doors doors;
     private String name;
-    private int id;
 }
