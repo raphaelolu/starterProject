@@ -1,6 +1,4 @@
 package starter.project.frontend;
-
-
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
@@ -34,16 +32,39 @@ public class CarController {
     @GetMapping(path = "/cars/{list}")
     public List<Car> getBatchCars(@PathVariable List<String> list) {
         List<Car> newList = new ArrayList<>();
-        for(String entry : list) {
-         newList.add(map.get(entry));
+        for (String entry : list) {
+            newList.add(map.get(entry));
         }
         return newList;
     }
+
     @PostMapping(path = "/cars", consumes = {"application/json"})
     public Map<String, Car> createCarList(@RequestBody List<Car> carList) {
         carNewList = carList;
         for (int i = 0; i < carList.size(); i++) {
             map.put(String.valueOf(i), carNewList.get(i));
+            carNewList.get(i).setId(i);
+        }
+        return map;
+    }
+
+    @PutMapping(path = "car", consumes = {"application/json"})
+    public Map<String, Car> updateCars(@RequestBody Car car) {
+        Car entry = map.get(String.valueOf(car.getId()));
+        entry = car;
+        map.put(String.valueOf(entry.getId()), entry);
+        return map;
+    }
+
+    @PutMapping(path = "cars")
+    public Map<String, Car> batchUpdateCars(@RequestBody Map<String, Car> m) {
+
+        for (Map.Entry<String, Car> entry : m.entrySet()) {
+            String key = entry.getKey();
+            Car value = entry.getValue();
+            Car updatedCar = map.get(key);
+            updatedCar = value;
+            map.put(key, updatedCar);
         }
         return map;
     }
