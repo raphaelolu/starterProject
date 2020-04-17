@@ -17,7 +17,6 @@ public class CarController {
         currentCarList.add(car);
         return currentCarList;
     }
-
     @GetMapping(path = "/car/{carId}")
     public Car getCar(@PathVariable("carId") int carId) {
         for (Car car : currentCarList) {
