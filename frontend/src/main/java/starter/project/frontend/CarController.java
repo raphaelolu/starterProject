@@ -9,17 +9,20 @@ import java.util.*;
 @RestController
 public class CarController {
 
-    private List<Car> currentCarList = new ArrayList<>();
     Map<Integer, Car> map = new HashMap<>();
 
     @PostMapping(path = "/car", consumes = {"application/json"})
-    public List<Car> addCar(@RequestBody Car car) {
-        currentCarList.add(car);
-        return currentCarList;
+    public Map<Integer,Car> addCar(@RequestBody Car car) {
+        map.put(map.size()+1,car);
+        car.setId(map.size());
+        return map;
     }
+
     @GetMapping(path = "/car/{carId}")
     public Car getCar(@PathVariable("carId") int carId) {
-        for (Car car : currentCarList) {
+        for (Map.Entry<Integer, Car>  entry : map.entrySet()) {
+            int key = entry.getKey();
+            Car car = entry.getValue();
             if (car.getId() == (carId)) {
                 return car;
             }
@@ -39,6 +42,7 @@ public class CarController {
 
     @PostMapping(path = "/cars", consumes = {"application/json"})
     public Map<Integer, Car> createCarList(@RequestBody List<Car> carList) {
+        List<Car> currentCarList = new ArrayList<>();
         currentCarList = carList;
         for (int i = 0; i < carList.size(); i++) {
             map.put(i, currentCarList.get(i));
@@ -64,6 +68,27 @@ public class CarController {
             Car updatedCar = map.get(key);
             updatedCar = value;
             map.put(key, updatedCar);
+        }
+        return map;
+    }
+
+    @DeleteMapping(path = "car")
+    public Map<Integer, Car> deleteCar(@PathVariable int carId) {
+        for (Map.Entry<Integer, Car> entry : map.entrySet()) {
+            int key = entry.getKey();
+            Car car = entry.getValue();
+            if (carId == key) {
+                map.remove(key,car);
+            }
+
+        }
+        return map;
+    }
+    @DeleteMapping(path = "cars")
+    public Map<Integer,Car> batchDeleteCars(@RequestBody List<Integer> list)
+    {
+        for (int key : list) {
+            map.remove(key);
         }
         return map;
     }
