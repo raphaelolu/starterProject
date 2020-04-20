@@ -12,23 +12,16 @@ public class CarController {
 
     @PostMapping(path = "/car", consumes = {"application/json"})
     public Map<Integer,Car> addCar(@RequestBody Car car) {
-        map.put(map.size()+1,car);
-        car.setId(map.size());
+        map.put(car.getId(),car);
         return map;
     }
 
     @GetMapping(path = "/car/{carId}")
     public Car getCar(@PathVariable("carId") int carId) {
-        for (Map.Entry<Integer, Car>  entry : map.entrySet()) {
-            int key = entry.getKey();
-            Car car = entry.getValue();
-            if (car.getId() == (carId)) {
+     Car car =  map.get(carId);
                 return car;
-            }
         }
-        throw new ResponseStatusException(
-                HttpStatus.NOT_FOUND, "entity not found");
-    }
+
     @GetMapping(path = "/cars/{list}")
     public List<Car> getBatchCars(@PathVariable List<Integer> list) {
         List<Car> newList = new ArrayList<>();
@@ -40,11 +33,8 @@ public class CarController {
 
     @PostMapping(path = "/cars", consumes = {"application/json"})
     public Map<Integer, Car> createCarList(@RequestBody List<Car> carList) {
-        List<Car> currentCarList = new ArrayList<>();
-        currentCarList = carList;
         for (int i = 0; i < carList.size(); i++) {
-            map.put(i, currentCarList.get(i));
-            currentCarList.get(i).setId(i);
+            map.put(carList.get(i).getId(), carList.get(i));
         }
         return map;
     }
