@@ -12,8 +12,7 @@ public class CarController {
     @GetMapping(path = "/car/{carId}")
     public Car getCar(@PathVariable("carId") int carId) {
 
-     Car car =  map.get(carId);
-                return car;
+        return map.get(carId);
         }
 
     @GetMapping(path = "/cars/{list}")
@@ -51,11 +50,7 @@ public class CarController {
     public Map<Integer, Car> batchUpdateCars(@RequestBody Map<Integer, Car> m) {
 
         for (Map.Entry<Integer, Car> entry : m.entrySet()) {
-            int key = entry.getKey();
-            Car value = entry.getValue();
-            Car updatedCar = map.get(key);
-            updatedCar = value;
-            map.put(key, updatedCar);
+            map.put(entry.getKey(),entry.getValue());
         }
         return map;
     }
