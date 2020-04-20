@@ -48,10 +48,7 @@ public class CarController {
 
     @PutMapping(path = "cars")
     public Map<Integer, Car> batchUpdateCars(@RequestBody Map<Integer, Car> m) {
-
-        for (Map.Entry<Integer, Car> entry : m.entrySet()) {
-            map.put(entry.getKey(),entry.getValue());
-        }
+        map.putAll(m);
         return map;
     }
 
