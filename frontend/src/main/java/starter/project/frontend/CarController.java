@@ -1,28 +1,28 @@
 package starter.project.frontend;
-
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import starter.project.domain.Car;
+
 import java.util.*;
 
 @RestController
 public class CarController {
-
-    private List<Car> carNewList = new ArrayList<>();
-    Map<String, Car> map = new HashMap<>();
+    Map<Integer, Car> map = new HashMap<>();
 
     @PostMapping(path = "/car", consumes = {"application/json"})
-    public List<Car> addCar(@RequestBody Car car) {
-        carNewList.add(car);
-        return carNewList;
+    public Map<Integer,Car> addCar(@RequestBody Car car) {
+        map.put(map.size()+1,car);
+        car.setId(map.size());
+        return map;
     }
 
     @GetMapping(path = "/car/{carId}")
     public Car getCar(@PathVariable("carId") int carId) {
-        for (Car car : carNewList) {
+        for (Map.Entry<Integer, Car>  entry : map.entrySet()) {
+            int key = entry.getKey();
+            Car car = entry.getValue();
             if (car.getId() == (carId)) {
                 return car;
             }
@@ -32,18 +32,42 @@ public class CarController {
     }
 
     @GetMapping(path = "/cars/{list}")
-    public List<Car> getBatchCars(@PathVariable List<String> list) {
+    public List<Car> getBatchCars(@PathVariable List<Integer> list) {
         List<Car> newList = new ArrayList<>();
-        for(String entry : list) {
-         newList.add(map.get(entry));
+        for (int entry : list) {
+            newList.add(map.get(entry));
         }
         return newList;
     }
+
     @PostMapping(path = "/cars", consumes = {"application/json"})
-    public Map<String, Car> createCarList(@RequestBody List<Car> carList) {
-        carNewList = carList;
+    public Map<Integer, Car> createCarList(@RequestBody List<Car> carList) {
+        List<Car> currentCarList = new ArrayList<>();
+        currentCarList = carList;
         for (int i = 0; i < carList.size(); i++) {
-            map.put(String.valueOf(i), carNewList.get(i));
+            map.put(i, currentCarList.get(i));
+            currentCarList.get(i).setId(i);
+        }
+        return map;
+    }
+
+    @PutMapping(path = "car", consumes = {"application/json"})
+    public Map<Integer, Car> updateCars(@RequestBody Car car) {
+        Car entry = map.get(car.getId());
+        entry = car;
+        map.put(entry.getId(), entry);
+        return map;
+    }
+
+    @PutMapping(path = "cars")
+    public Map<Integer, Car> batchUpdateCars(@RequestBody Map<Integer, Car> m) {
+
+        for (Map.Entry<Integer, Car> entry : m.entrySet()) {
+            int key = entry.getKey();
+            Car value = entry.getValue();
+            Car updatedCar = map.get(key);
+            updatedCar = value;
+            map.put(key, updatedCar);
         }
         return map;
     }
