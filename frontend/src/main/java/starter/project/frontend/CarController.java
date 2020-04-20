@@ -8,11 +8,6 @@ import java.util.*;
 @RestController
 public class CarController {
     Map<Integer, Car> map = new HashMap<>();
-    @PostMapping(path = "/car", consumes = {"application/json"})
-    public Map<Integer,Car> addCar(@RequestBody Car car) {
-        map.put(car.getId(),car);
-        return map;
-    }
 
     @GetMapping(path = "/car/{carId}")
     public Car getCar(@PathVariable("carId") int carId) {
@@ -39,11 +34,16 @@ public class CarController {
         return map;
     }
 
+    @PostMapping(path = "/car", consumes = {"application/json"})
+    public Map<Integer,Car> addCar(@RequestBody Car car) {
+        map.put(car.getId(),car);
+        return map;
+    }
+
+
     @PutMapping(path = "car", consumes = {"application/json"})
     public Map<Integer, Car> updateCars(@RequestBody Car car) {
-        Car entry = map.get(car.getId());
-        entry = car;
-        map.put(entry.getId(), entry);
+        map.put(car.getId(), car);
         return map;
     }
 
