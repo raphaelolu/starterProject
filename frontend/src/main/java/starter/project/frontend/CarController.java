@@ -29,7 +29,6 @@ public class CarController {
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "entity not found");
     }
-
     @GetMapping(path = "/cars/{list}")
     public List<Car> getBatchCars(@PathVariable List<Integer> list) {
         List<Car> newList = new ArrayList<>();
