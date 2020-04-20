@@ -1,21 +1,16 @@
 package starter.project.frontend;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import starter.project.domain.Car;
-
 import java.util.*;
 
 @RestController
 public class CarController {
     Map<Integer, Car> map = new HashMap<>();
-
     @PostMapping(path = "/car", consumes = {"application/json"})
     public Map<Integer,Car> addCar(@RequestBody Car car) {
-
         map.put(car.getId(),car);
-
         return map;
     }
 
@@ -23,7 +18,6 @@ public class CarController {
     public Car getCar(@PathVariable("carId") int carId) {
 
      Car car =  map.get(carId);
-
                 return car;
         }
 
