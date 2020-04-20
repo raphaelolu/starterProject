@@ -67,5 +67,26 @@ public class CarController {
         }
         return map;
     }
+
+   @DeleteMapping(path = "car/{carId}")
+    public Map<Integer, Car> deleteCar(@PathVariable int carId) {
+        for (Map.Entry<Integer, Car> entry : map.entrySet()) {
+            int key = entry.getKey();
+            Car car = entry.getValue();
+            if (carId == key) {
+                map.remove(key,car);
+            }
+        }
+        return map;
+    }
+    @DeleteMapping(path = "cars/{list}")
+    public Map<Integer,Car> batchDeleteCars(@PathVariable List<Integer> list)
+    {
+        for (int key : list) {
+            map.remove(key);
+        }
+        return map;
+    }
+
 }
 
