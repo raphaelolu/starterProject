@@ -1,9 +1,10 @@
 package starter.project.frontend;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import starter.project.domain.Car;
+
 import java.util.*;
 
 @RestController
@@ -12,13 +13,17 @@ public class CarController {
 
     @PostMapping(path = "/car", consumes = {"application/json"})
     public Map<Integer,Car> addCar(@RequestBody Car car) {
+
         map.put(car.getId(),car);
+
         return map;
     }
 
     @GetMapping(path = "/car/{carId}")
     public Car getCar(@PathVariable("carId") int carId) {
+
      Car car =  map.get(carId);
+
                 return car;
         }
 
@@ -33,6 +38,7 @@ public class CarController {
 
     @PostMapping(path = "/cars", consumes = {"application/json"})
     public Map<Integer, Car> createCarList(@RequestBody List<Car> carList) {
+
         for (int i = 0; i < carList.size(); i++) {
             map.put(carList.get(i).getId(), carList.get(i));
         }
