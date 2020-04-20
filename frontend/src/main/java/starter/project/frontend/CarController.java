@@ -8,7 +8,6 @@ import java.util.*;
 
 @RestController
 public class CarController {
-
     Map<Integer, Car> map = new HashMap<>();
 
     @PostMapping(path = "/car", consumes = {"application/json"})
