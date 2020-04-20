@@ -1,14 +1,14 @@
 package starter.project.frontend;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import starter.project.domain.Car;
+
 import java.util.*;
 
 @RestController
 public class CarController {
-
     Map<Integer, Car> map = new HashMap<>();
 
     @PostMapping(path = "/car", consumes = {"application/json"})
@@ -68,27 +68,6 @@ public class CarController {
             Car updatedCar = map.get(key);
             updatedCar = value;
             map.put(key, updatedCar);
-        }
-        return map;
-    }
-
-    @DeleteMapping(path = "car")
-    public Map<Integer, Car> deleteCar(@PathVariable int carId) {
-        for (Map.Entry<Integer, Car> entry : map.entrySet()) {
-            int key = entry.getKey();
-            Car car = entry.getValue();
-            if (carId == key) {
-                map.remove(key,car);
-            }
-
-        }
-        return map;
-    }
-    @DeleteMapping(path = "cars")
-    public Map<Integer,Car> batchDeleteCars(@RequestBody List<Integer> list)
-    {
-        for (int key : list) {
-            map.remove(key);
         }
         return map;
     }
