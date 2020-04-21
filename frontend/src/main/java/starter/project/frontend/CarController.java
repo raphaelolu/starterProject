@@ -54,7 +54,7 @@ public class CarController {
 
    @DeleteMapping(path = "car/{carId}")
     public Map<Integer, Car> deleteCar(@PathVariable int carId) {
-        map.keySet().remove(carId);
+        map.remove(carId);
             return map;
         }
 
