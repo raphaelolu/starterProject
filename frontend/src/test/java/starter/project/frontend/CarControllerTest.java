@@ -43,7 +43,7 @@ public class CarControllerTest {
         assertEquals(list,controller.getBatchCars(idList));
     }
     @Test
-    public void verifyCarPostedHasCorrectFields(){
+    public void verifyCarHasCorrectFields(){
         Car car = Car.builder().id(22).doors(Doors.builder().build()).name("rover").engine(Engine.builder().build()).wheels(Wheels.builder().build()).build();
         Car mockCar = Car.builder().id(22).doors(Doors.builder().build()).name("rover").engine(Engine.builder().build()).wheels(Wheels.builder().build()).build();
         controller.addCar(car);
