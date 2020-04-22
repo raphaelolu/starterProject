@@ -26,7 +26,6 @@ public class CarControllerTest {
         System.out.println(controller.map);
         assertEquals(2, controller.map.size());
     }
-
     @Test
     public void listOfCarsShouldbeAddedToMap(){
         Car car = Car.builder().id(22).build();
@@ -43,7 +42,6 @@ public class CarControllerTest {
         controller.createCarList(list);
         assertEquals(list,controller.getBatchCars(idList));
     }
-
     @Test
     public void verifyCarPostedHasCorrectFields(){
         Car car = Car.builder().id(22).doors(Doors.builder().build()).name("rover").engine(Engine.builder().build()).wheels(Wheels.builder().build()).build();
