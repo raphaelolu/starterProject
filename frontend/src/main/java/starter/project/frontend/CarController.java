@@ -1,4 +1,5 @@
 package starter.project.frontend;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -7,9 +8,13 @@ import java.util.*;
 
 @RestController
 public class CarController {
-    Map<Integer, Car> map = new HashMap<>();
+   private Map<Integer, Car> map = new HashMap<>();
 
-    @GetMapping(path = "/car/{carId}")
+   CarController(Map<Integer, Car> map) {
+       this.map = map;
+   }
+
+        @GetMapping(path = "/car/{carId}")
     public Car getCar(@PathVariable("carId") int carId) {
 
         return map.get(carId);
