@@ -1,21 +1,30 @@
 package starter.project.frontend;
 
-import org.junit.jupiter.api.DisplayName;
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.Test;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.ResponseEntity;
+import org.springframework.test.web.servlet.MockMvc;
 
-import java.net.URL;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest
+@AutoConfigureMockMvc
 public class CarControllerTest {
-    @LocalServerPort
-    private int port;}
-//    @Autowired
-//    //private TestRestTemplate restTemplate
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Test
+    public void shouldReturnCarById(){
+        CarController controller = new CarController();
+        assertThat(controller.getCar(13).getId() == 13);
+    }
+}
+
+
+
+
+
 
