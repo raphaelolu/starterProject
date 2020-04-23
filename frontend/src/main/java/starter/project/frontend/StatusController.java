@@ -8,6 +8,6 @@ public class StatusController
 {
     @GetMapping("/status")
     public String status() {
-        return  "status: ok";
+        return  "status:ok";
     }
 }
