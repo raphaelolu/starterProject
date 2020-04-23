@@ -8,7 +8,7 @@ import java.util.*;
 
 @RestController
 public class CarController {
-   private Map<Integer, Car> map = new HashMap<>();
+   private Map<Integer, Car> map;
 
    CarController(Map<Integer, Car> map) {
        this.map = map;

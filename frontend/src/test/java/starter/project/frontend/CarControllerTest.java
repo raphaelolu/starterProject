@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+
+import static org.junit.Assert.*;
 
 public class CarControllerTest {
     Map<Integer, Car> map = new HashMap<>() {
@@ -79,6 +79,8 @@ public class CarControllerTest {
         underTest.createCarList(list);
         underTest.batchDeleteCars(carsTobeDeleted);
         assertEquals(1,map.size());
+         assertEquals(fourthCar.getId(),map.get(60).getId());
+
 
     }
     @Test
@@ -95,6 +97,8 @@ public class CarControllerTest {
         Car secondCar = Car.builder().id(23).build();
         underTest.addCar(secondCar);
         assertEquals(2,map.size());
+        assertEquals(car.getId(),map.get(22).getId());
+        assertEquals(secondCar.getId(),map.get(23).getId());
     }
     @Test
     public void verifyCarsAreAddedCorrectlyToMap(){
