@@ -79,7 +79,7 @@ public class CarControllerTest {
         underTest.createCarList(list);
         underTest.batchDeleteCars(carsTobeDeleted);
         assertEquals(1,map.size());
-         assertEquals(fourthCar.getId(),map.get(60).getId());
+         assertEquals(fourthCar,map.get(60));
 
 
     }
@@ -97,7 +97,7 @@ public class CarControllerTest {
         Car secondCar = Car.builder().id(23).build();
         underTest.addCar(secondCar);
         assertEquals(2,map.size());
-        assertEquals(car.getId(),map.get(22).getId());
+        assertEquals(car,map.get(22));
         assertEquals(secondCar.getId(),map.get(23).getId());
     }
     @Test

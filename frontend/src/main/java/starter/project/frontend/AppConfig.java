@@ -13,7 +13,7 @@ public class AppConfig {
     @Bean
     public  Map<Integer, Car> map()
     {
-        return  new HashMap<Integer, Car>() ;
+        return  new HashMap<>() ;
     }
 }
 
